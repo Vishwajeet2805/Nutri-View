@@ -14,7 +14,7 @@ export function Header({ onProfileClick }: HeaderProps) {
             <Leaf className="w-6 h-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="font-display font-bold text-lg text-foreground">NutriScan</h1>
+            <h1 className="font-display font-bold text-lg text-foreground">NutriView</h1>
             <p className="text-xs text-muted-foreground">AI Food Co-Pilot</p>
           </div>
         </div>
