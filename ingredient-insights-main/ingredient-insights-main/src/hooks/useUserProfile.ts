@@ -7,6 +7,7 @@ const defaultProfile: UserProfile = {
   allergies: [],
   dietaryRestrictions: [],
   healthGoals: [],
+  healthIssues: [],
 };
 
 export function useUserProfile() {
