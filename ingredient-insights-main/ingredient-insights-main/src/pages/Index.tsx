@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Header } from '@/components/nutriscan/Header';
@@ -8,11 +10,15 @@ import { ProfileSheet } from '@/components/nutriscan/ProfileSheet';
 import { ScanHistory } from '@/components/nutriscan/ScanHistory';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { useScanHistory } from '@/hooks/useScanHistory';
+import { useAuth } from '@/hooks/useAuth';
 import { AnalysisResult } from '@/types/nutriscan';
+import { Loader2 } from 'lucide-react';
 
 type AppView = 'home' | 'input' | 'analysis';
 
 export default function Index() {
+  const navigate = useNavigate();
+  const { user, isLoading: authLoading } = useAuth();
   const [view, setView] = useState<AppView>('home');
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -21,6 +27,13 @@ export default function Index() {
   
   const { profile, updateProfile, isLoaded } = useUserProfile();
   const { history, addScan, removeScan, clearHistory } = useScanHistory();
+
+  // Redirect to auth if not logged in
+  useEffect(() => {
+    if (!authLoading && !user) {
+      navigate('/auth');
+    }
+  }, [user, authLoading, navigate]);
 
   const handleAnalyze = async (input: string, isImage: boolean, imageBase64?: string) => {
     setIsAnalyzing(true);
@@ -74,6 +87,20 @@ export default function Index() {
     setOriginalInput(inputLabel);
     setView('analysis');
   };
+
+  // Show loading while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // Don't render anything if not authenticated (redirect will happen)
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-background">
