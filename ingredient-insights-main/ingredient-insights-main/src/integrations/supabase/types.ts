@@ -14,13 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          allergies: string[] | null
+          created_at: string
+          dietary_restrictions: string[] | null
+          health_goals: string[] | null
+          health_issues: string[] | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allergies?: string[] | null
+          created_at?: string
+          dietary_restrictions?: string[] | null
+          health_goals?: string[] | null
+          health_issues?: string[] | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allergies?: string[] | null
+          created_at?: string
+          dietary_restrictions?: string[] | null
+          health_goals?: string[] | null
+          health_issues?: string[] | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      scan_history: {
+        Row: {
+          expires_at: string
+          health_score: number
+          id: string
+          ingredients: string[]
+          product_name: string
+          risk_level: string
+          scanned_at: string
+          user_id: string
+        }
+        Insert: {
+          expires_at?: string
+          health_score: number
+          id?: string
+          ingredients: string[]
+          product_name: string
+          risk_level: string
+          scanned_at?: string
+          user_id: string
+        }
+        Update: {
+          expires_at?: string
+          health_score?: number
+          id?: string
+          ingredients?: string[]
+          product_name?: string
+          risk_level?: string
+          scanned_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      cleanup_expired_scans: { Args: never; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
