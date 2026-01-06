@@ -1,8 +1,8 @@
+--------------------------------------------------
 NutriView – Personal Ingredient Analyzer
-
+--------------------------------------------------
 NutriView is a smart web application that helps users understand what’s really inside packaged food products. 
-It analyzes ingredients, flags potential health risks, and personalizes results based on the user’s health conditions, 
-dietary preferences, and allergies.
+It analyzes ingredients, flags potential health risks, and personalizes results based on the user’s health conditions, dietary preferences, and allergies.
 
 In short: scan → analyze → decide smarter.
 
@@ -11,15 +11,14 @@ PROBLEM STATEMENT
 --------------------------------------------------
 Most people consume packaged foods without fully understanding harmful additives, hidden allergens, or ingredients 
 that conflict with medical conditions like diabetes or blood pressure. Ingredient labels are complex, technical, 
-and not personalized.
+and are not personalized.
 
 NutriView solves this problem by simplifying and personalizing food ingredient analysis.
 
 --------------------------------------------------
 SOLUTION OVERVIEW
 --------------------------------------------------
-NutriView acts as a personal nutrition filter. Users create an account, set health preferences, analyze product 
-ingredients, and receive clear insights on safety and suitability.
+NutriView acts as a personal nutrition filter. Users create an account, set health preferences, analyze product ingredients, and receive clear insights on safety and suitability.
 
 --------------------------------------------------
 KEY FEATURES
@@ -27,6 +26,7 @@ KEY FEATURES
 • Secure Login & Signup
 • Personalized health and diet profiles
 • Ingredient breakdown and risk tagging
+• Provide rating out of 100  
 • Allergy and condition-based alerts
 • Analytics dashboard for usage tracking
 
@@ -48,6 +48,7 @@ Frontend:
 
 Backend:
 • Supabase (Authentication & Database)
+• Typescript 
 
 Database:
 • Supabase PostgreSQL
@@ -80,10 +81,10 @@ LIMITATIONS
 --------------------------------------------------
 FUTURE ENHANCEMENTS
 --------------------------------------------------
-• Barcode and image-based scanning
+• Text and image-based scanning
 • AI-powered ingredient risk scoring
 • Personalized nutrition recommendations
-• Mobile application support
+• Mobile and desktop application support
 
 --------------------------------------------------
 CONCLUSION
